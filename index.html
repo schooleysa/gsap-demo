@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Sock Demo</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<script src="index.js"></script>
+
+</head>
+<body>
+    <div class="container1">
+        <div class="main">
+            <h1 class="animation1"><span>Here is a thing</span><span>I made using Greensock</span></h1>
+            <p class="animation1">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.
+            </p>
+            <button class="animation1 btn">Click to Have a Ball</button>
+        </div>
+        <div class="side">
+            <img src="assets/pngegg.png" alt="An abstract image that animates in, displaying my ability to use Greensock">
+        </div>
+    </div>
+    <div class="container2">
+        <h2>Click and Drag to throw the Balls!</h2>
+        <div id="ballContainer">
+        <div class="ball pink">
+        </div>
+        <div class="ball grey">
+        </div>
+        <div class="ball black">
+        </div>
+        </div>
+    </div>
+
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/Draggable3.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/InertiaPlugin.min.js"></script>
+    <script>
+var rule = CSSRulePlugin.getRule("span:after");
+var tl = gsap.timeline({defaults: {duration: 2}})
+
+        tl.from(".animation1", {opacity: 0, y: -50, ease: "Power2.easeInOut", stagger: 0.5})
+        .to(rule, {cssRule: {scaleY: 0}}, "-=2")
+        .from(".side", {opacity: 0, x: 50, ease: "elastic"})
+
+Draggable.create(".ball", {type:"x,y", edgeResistance:0.75, bounds:"#ballContainer", inertia:true});
+
+    </script>
+</body>
+</html>
