@@ -1,13 +1,12 @@
+const btn = document.querySelector(".btn");
 
-
-const showCont = () => {
-    document.getElementsByClassName("container1").style.display = "none";
-    document.getElementsByClassName("container2").style.display = "flex";
+function showCont () {
+    document.querySelector(".container1").style.display = "none";
+    document.querySelector(".container2").style.display = "flex";
 }
 
-const init = () => {
-    console.log("iaiasd")
-    document.getElementsByClassName("btn").addEventListener("click", showCont)
+function init () {
+        btn.addEventListener("click", showCont)
 }
 
 init();

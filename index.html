@@ -9,8 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
-<script src="index.js"></script>
-
 </head>
 <body>
     <div class="container1">
@@ -26,22 +24,20 @@
             <img src="assets/pngegg.png" alt="An abstract image that animates in, displaying my ability to use Greensock">
         </div>
     </div>
-    <div class="container2">
+    <div class="container2" id="container">
         <h2>Click and Drag to throw the Balls!</h2>
-        <div id="ballContainer">
         <div class="ball pink">
         </div>
         <div class="ball grey">
         </div>
         <div class="ball black">
         </div>
-        </div>
     </div>
 
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/Draggable3.min.js"></script>
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/InertiaPlugin.min.js"></script>
+    <!-- <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/InertiaPlugin.min.js"></script> -->
     <script>
 var rule = CSSRulePlugin.getRule("span:after");
 var tl = gsap.timeline({defaults: {duration: 2}})
@@ -50,8 +46,9 @@ var tl = gsap.timeline({defaults: {duration: 2}})
         .to(rule, {cssRule: {scaleY: 0}}, "-=2")
         .from(".side", {opacity: 0, x: 50, ease: "elastic"})
 
-Draggable.create(".ball", {type:"x,y", edgeResistance:0.75, bounds:"#ballContainer", inertia:true});
+Draggable.create(".ball", {type:"x,y", edgeResistance:0.75, bounds:"#container"});
 
     </script>
+    <script src="index.js"></script>
 </body>
 </html>
